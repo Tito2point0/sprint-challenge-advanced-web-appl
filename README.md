@@ -83,3 +83,14 @@ You must also also test the Spinner component in this module:
 
 ## MVP Short Explanation
 
+
+  useEffect(() => {
+    if (currentArticleId && articles.length > 0) {
+      const currentArticle = articles.find(
+        (item) => item.article_id === currentArticleId
+      );
+      setValues(currentArticle || initialFormValues);
+    } else {
+      setValues(initialFormValues);
+    }
+  }, [currentArticleId, articles])

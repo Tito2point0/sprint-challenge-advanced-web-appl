@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import PT from "prop-types";
 
-const initialFormValues = { title: "", text: "", topic: "" };
+const initialFormValues = { title: "Fancy Title", text: "", topic: "" };
 
 export default function ArticleForm(props) {
   const { setCurrentArticleId, currentArticleId, articles, postArticle, updateArticle } = props;
   const [values, setValues] = useState(initialFormValues);
   // ✨ where are my props? Destructure them here
-
-  useEffect(() => {
+ useEffect(() => {
     if (currentArticleId && articles.length > 0) {
       const currentArticle = articles.find(
         (item) => item.article_id === currentArticleId
       );
-      setValues(currentArticle || initialFormValues);
+      if (currentArticle) {
+        setValues(currentArticle);
+      }
     } else {
       setValues(initialFormValues);
     }
