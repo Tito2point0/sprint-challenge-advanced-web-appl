@@ -61,10 +61,10 @@ export default function ArticleForm(props) {
       return true;
     }
   };
-  const quit = (evt) => {
+  const canceled = (evt) => {
     evt.preventDefault();
     setCurrentArticleId();
-    setValues(values);
+    setValues(initialFormValues);
   };
 
 
@@ -98,7 +98,7 @@ export default function ArticleForm(props) {
           Submit
         </button>
     
-        <button onClick={(e) => quit(e)}>Cancel edit</button>
+        <button onClick={(e) => canceled(e)}>Cancel edit</button>
       </div>
     </form>
   );
