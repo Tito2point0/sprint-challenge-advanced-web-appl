@@ -51,7 +51,22 @@ export default function ArticleForm(props) {
     }
   };
 
-  const isDisabled = () => !(values.text && values.title && values.topic);
+ 
+  const isDisabled = () => {
+    // ✨ implement
+    // Make sure the inputs have some values
+    if (values.text && values.title && values.topic) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+  const quit = (evt) => {
+    evt.preventDefault();
+    setCurrentArticleId();
+    setValues(values);
+  };
+
 
   return (
     // ✨ fix the JSX: make the heading display either "Edit" or "Create"
@@ -82,7 +97,8 @@ export default function ArticleForm(props) {
         <button disabled={isDisabled()} id="submitArticle">
           Submit
         </button>
-        <button onClick={() => setCurrentArticleId()}>Cancel edit</button>
+    
+        <button onClick={(e) => quit(e)}>Cancel edit</button>
       </div>
     </form>
   );
