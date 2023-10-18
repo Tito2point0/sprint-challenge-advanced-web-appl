@@ -27,7 +27,7 @@ export default function ArticleForm(props) {
 
   const onSubmit = (evt) => {
     evt.preventDefault();
-    console.log(evt);
+  ;
 
     if (currentArticleId) {
       let articleData = {
@@ -67,7 +67,7 @@ export default function ArticleForm(props) {
   const canceled = (evt) => {
     evt.preventDefault();
     setCurrentArticleId();
-    setValues(initialFormValues);
+    setValues(values);
   };
 
 
