@@ -26,23 +26,25 @@ export default function ArticleForm(props) {
 
   const onSubmit = (evt) => {
     evt.preventDefault();
+    console.log(evt);
 
     if (currentArticleId) {
-      let artInfo = {
+      let articleData = {
         article_id: currentArticleId,
         article: values,
       };
 
-      updateArticle(artInfo)
+      updateArticle(articleData)
         .then(() => {
           setValues(initialFormValues);
         })
         .catch((error) => {
-          console.error("Updating", error);
+          console.error("Error updating article:", error);
         });
     } else {
       postArticle(values)
         .then(() => {
+          console.log("Article posted successfully");
           setValues(initialFormValues);
         })
         .catch((error) => {
