@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PT from "prop-types";
 
-const initialFormValues = { title: "Fancy Title", text: "", topic: "" };
+const initialFormValues = { title: "Fancy Title", text: "Fancy Text", topic: "Fancy Topic" };
 
 export default function ArticleForm(props) {
   const { setCurrentArticleId, currentArticleId, articles, postArticle, updateArticle } = props;
